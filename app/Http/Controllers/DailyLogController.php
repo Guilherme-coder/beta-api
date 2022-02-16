@@ -19,6 +19,11 @@ class DailyLogController extends Controller
         return response()->json($dailyLog, 200);
     }
 
+    public function getDailyLogsByUserId() {
+        $dailyLog = DailyLog::where('user_id', Auth::user()->id)->get();
+        return response()->json($dailyLog, 200);
+    }
+
     public function destroy($id) {
         if(!$dailyLog = DailyLog::find($id)){
             return response()->json([ 'message' => 'este log nao existe' ], 404);

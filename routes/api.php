@@ -39,6 +39,7 @@ Route::group(['middleware' => 'auth:api'], function () {
 //  Route::resource('/dailyLogs', DailyLogController::class);
     Route::post('/dailyLogs', [DailyLogController::class, 'store']);
     Route::get('/dailyLogs', [DailyLogController::class, 'index']);
+    Route::get('/dailyLogs/mine', [DailyLogController::class, 'getDailyLogsByUserId']);
     Route::delete('/dailyLogs/{id}', [DailyLogController::class, 'destroy']);
     Route::put('/dailyLogs/{id}', [DailyLogController::class, 'update']);
     Route::put('/dailyLogs/deadline/{id}', [DailyLogController::class, 'changeDeadline']);
